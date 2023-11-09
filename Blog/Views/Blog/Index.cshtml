@@ -1,0 +1,17 @@
+﻿@model List<Posts>
+
+
+@foreach (var post in @Model)
+{
+    <div class="card">
+        <h3 class="card-header text-center"> @post.Name</h3>
+        <div class="card-body">
+            <div>@Html.Raw(@post.Description) </div>
+            <div> @post.DatePublic </div>
+        </div>
+        <div class="card-footer">
+            @Html.ActionLink("Edit", "CreatePost", new {id = @post.Id})
+        </div>
+    </div>
+
+}

@@ -1,0 +1,25 @@
+﻿@using Blog.Models
+
+@model Posts
+
+<link href='~/css/froala_editor.pkgd.min.css' rel='stylesheet' type='text/css' />
+<script type='text/javascript' src='~/js/froala_editor.pkgd.min.js'></script>
+<div class="container card">
+    <form asp-controller="Blog" asp-action="CreatePost" method="post">
+    <div class="card-header text-center">
+        <h2> Create your post!</h2>
+    </div>
+    <div class="card-body">
+            <input asp-for="Id" style=" display:none" />
+            <label for=" name " class="mb-1"> Come up with title for your post </label>
+            <input asp-for="Name" id="name" class="form-control mb-3" />
+            <textarea asp-for="Description" id="editor"></textarea> 
+    </div>
+    <div class="card-footer">
+        <button class="btn btn-outline-dark" type="submit"> Submit </button>
+    </div>
+   </form>
+</div>
+<script>
+    var editor = new FroalaEditor('#editor');
+</script>
